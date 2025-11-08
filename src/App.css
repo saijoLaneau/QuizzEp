@@ -1,0 +1,147 @@
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.quiz-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: contain;
+  background-color: #000;
+  /* optional to fill gaps */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Semi-transparent card for questions */
+.quiz-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.answers button.selected {
+  background: #4caf50;
+  color: white;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.nav-buttons button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-buttons button:hover:enabled {
+  background: #555;
+}
+
+.nav-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 🎉 Final screen with single transparent box (same style as quiz card) */
+.final-screen {
+  background: rgba(0, 0, 0, 0.6); /* same transparency as quiz-card */
+  padding: 2.5rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 1s ease forwards;
+  line-height: 1.7;
+}
+
+.final-screen h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.final-screen p {
+  font-size: 1.1rem;
+  color: #eee;
+  margin-bottom: 0.8rem;
+}
+
+.final-screen strong {
+  font-weight: 600;
+}
+
+.name-input {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 80%;
+  font-size: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+}
+
+.name-input::placeholder {
+  color: #ddd;
+}
+
+.name-input:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.final-screen button {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #4caf50, #43a047);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.final-screen button:hover {
+  background: linear-gradient(90deg, #66bb6a, #43a047);
+  transform: scale(1.05);
+}
