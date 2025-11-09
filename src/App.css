@@ -10,10 +10,10 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* ✅ Fond d'écran responsive */
+/* ✅ Conteneur plein écran */
 .quiz-container {
   position: relative;
-  height: 100dvh; /* Meilleure compatibilité iPhone */
+  height: 100dvh; /* fix iPhone Safari */
   width: 100vw;
   background-size: contain;
   background-position: center;
@@ -27,23 +27,23 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-/* ✅ Boîte principale (plus compacte sur mobile) */
+/* ✅ Boîte principale */
 .final-screen {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.55);
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 2rem 1.8rem;
-  width: 100%;
+  padding: 2rem;
+  width: 90%;
   max-width: 500px;
   text-align: center;
   animation: fadeIn 0.8s ease forwards;
-  line-height: 1.7;
+  line-height: 1.6;
   transition: all 0.3s ease;
 }
 
-/* ✅ Titre principal */
+/* ✅ Texte */
 .final-screen h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -52,19 +52,18 @@ html, body, #root {
   line-height: 1.3;
 }
 
-/* ✅ Texte */
 .final-screen p {
   font-size: 1rem;
   color: #eee;
   line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .final-screen strong {
   font-weight: 600;
 }
 
-/* ✅ Champ nom */
+/* ✅ Champ input */
 .name-input {
   margin-top: 1.3rem;
   padding: 0.8rem 1rem;
@@ -88,7 +87,7 @@ html, body, #root {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* ✅ Bouton d'envoi */
+/* ✅ Bouton */
 .final-screen button {
   margin-top: 1rem;
   background: linear-gradient(90deg, #4caf50, #43a047);
@@ -107,7 +106,7 @@ html, body, #root {
   transform: scale(1.05);
 }
 
-/* ✅ Animation douce */
+/* ✅ Animation d'apparition */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -119,33 +118,46 @@ html, body, #root {
   }
 }
 
-/* 📱 MOBILE OPTIMISATION */
-@media (max-width: 600px) {
+/* 📱 MOBILE (iPhone & petits téléphones) */
+@media (max-width: 500px) {
   .final-screen {
-    padding: 1.3rem 1rem;
-    max-width: 360px;
+    background: rgba(0, 0, 0, 0.45); /* un peu plus transparente */
+    padding: 1rem;
+    max-width: 300px; /* 👈 boîte plus fine */
     border-radius: 0.8rem;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .final-screen h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .final-screen p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-bottom: 0.6rem;
   }
 
+  .final-screen p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
   .name-input {
-    width: 90%;
-    padding: 0.7rem 0.9rem;
-    font-size: 0.9rem;
+    width: 95%;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
   }
 
   .final-screen button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 Grands téléphones (ex: iPhone Pro Max, Pixel 7) */
+@media (min-width: 501px) and (max-width: 768px) {
+  .final-screen {
+    max-width: 380px;
+    padding: 1.3rem;
+  }
+
+  .final-screen h1 {
+    font-size: 1.5rem;
   }
 }
