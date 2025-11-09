@@ -1,3 +1,4 @@
+/* --- RESET & BASE LAYOUT --- */
 html,
 body,
 #root {
@@ -5,143 +6,160 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #000;
 }
 
+/* --- MAIN CONTAINER --- */
 .quiz-container {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-size: contain;
-  background-color: #000;
-  /* optional to fill gaps */
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
 }
 
-
-/* Semi-transparent card for questions */
-.quiz-card {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: 1rem;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.answers {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.answers button.selected {
-  background: #4caf50;
-  color: white;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-}
-
-.nav-buttons button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav-buttons button:hover:enabled {
-  background: #555;
-}
-
-.nav-buttons button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* 🎉 Final screen with single transparent box (same style as quiz card) */
+/* --- INVITATION CARD --- */
 .final-screen {
-  background: rgba(0, 0, 0, 0.6); /* same transparency as quiz-card */
-  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 1rem;
-  width: 90%;
+  padding: 2.5rem;
   max-width: 600px;
+  width: 90%;
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 1.2s ease forwards;
   line-height: 1.7;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- TEXT STYLING --- */
 .final-screen h1 {
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #fff;
   margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .final-screen p {
   font-size: 1.1rem;
   color: #eee;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .final-screen strong {
   font-weight: 600;
 }
 
+/* --- INPUT FIELD --- */
 .name-input {
   margin-top: 1.5rem;
-  padding: 0.8rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
   border: none;
-  width: 80%;
+  width: 85%;
   font-size: 1rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
   outline: none;
+  transition: 0.3s;
 }
 
 .name-input::placeholder {
-  color: #ddd;
+  color: #ccc;
 }
 
 .name-input:focus {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
 }
 
+/* --- BUTTON --- */
 .final-screen button {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   background: linear-gradient(90deg, #4caf50, #43a047);
   border: none;
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 0.6rem;
   font-size: 1.1rem;
   cursor: pointer;
   transition: 0.3s ease;
+  font-weight: 600;
 }
 
 .final-screen button:hover {
   background: linear-gradient(90deg, #66bb6a, #43a047);
   transform: scale(1.05);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .final-screen {
+    padding: 1.8rem;
+    width: 95%;
+    line-height: 1.5;
+  }
+
+  .final-screen h1 {
+    font-size: 1.8rem;
+  }
+
+  .final-screen p {
+    font-size: 1rem;
+  }
+
+  .name-input {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .final-screen button {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+/* --- VERY SMALL DEVICES (IPHONE SE, ETC.) --- */
+@media (max-width: 420px) {
+  .final-screen h1 {
+    font-size: 1.6rem;
+  }
+
+  .final-screen p {
+    font-size: 0.95rem;
+  }
+
+  .name-input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .final-screen button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
 }
