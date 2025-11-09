@@ -10,10 +10,10 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* ✅ Container principal, full screen sur mobile ET desktop */
+/* ✅ Fond d'écran responsive */
 .quiz-container {
   position: relative;
-  height: 100dvh; /* <-- fix iOS 100vh bug */
+  height: 100dvh; /* Meilleure compatibilité iPhone */
   width: 100vw;
   background-size: contain;
   background-position: center;
@@ -27,22 +27,23 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-/* ✅ Carte principale (même style pour le quizz ou la final screen) */
-.quiz-card,
+/* ✅ Boîte principale (plus compacte sur mobile) */
 .final-screen {
   background: rgba(0, 0, 0, 0.65);
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.8rem;
   width: 100%;
   max-width: 500px;
   text-align: center;
   animation: fadeIn 0.8s ease forwards;
+  line-height: 1.7;
+  transition: all 0.3s ease;
 }
 
-/* ✅ Texte principal */
+/* ✅ Titre principal */
 .final-screen h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -51,6 +52,7 @@ html, body, #root {
   line-height: 1.3;
 }
 
+/* ✅ Texte */
 .final-screen p {
   font-size: 1rem;
   color: #eee;
@@ -60,22 +62,22 @@ html, body, #root {
 
 .final-screen strong {
   font-weight: 600;
-  color: #ffd966;
 }
 
-/* ✅ Champ nom + bouton */
+/* ✅ Champ nom */
 .name-input {
-  margin-top: 1.5rem;
+  margin-top: 1.3rem;
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   border: none;
-  width: 90%;
-  max-width: 320px;
+  width: 85%;
+  max-width: 280px;
   font-size: 1rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   outline: none;
+  transition: 0.3s;
 }
 
 .name-input::placeholder {
@@ -92,9 +94,9 @@ html, body, #root {
   background: linear-gradient(90deg, #4caf50, #43a047);
   border: none;
   color: white;
-  padding: 0.9rem 1.8rem;
-  border-radius: 0.6rem;
-  font-size: 1.1rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
@@ -117,15 +119,33 @@ html, body, #root {
   }
 }
 
-/* ✅ Mobile optimization */
+/* 📱 MOBILE OPTIMISATION */
 @media (max-width: 600px) {
+  .final-screen {
+    padding: 1.3rem 1rem;
+    max-width: 360px;
+    border-radius: 0.8rem;
+    line-height: 1.5;
+  }
+
   .final-screen h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
   }
+
   .final-screen p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
   }
-  .quiz-card, .final-screen {
-    padding: 1.5rem 1rem;
+
+  .name-input {
+    width: 90%;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .final-screen button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
   }
 }

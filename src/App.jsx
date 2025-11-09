@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import finalBackground from "./assets/final.jpg";
+import finalBackground from "./assets/final.jpeg";
 import { createClient } from "@supabase/supabase-js";
 
 // ⚙️ Supabase setup
