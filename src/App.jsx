@@ -77,7 +77,7 @@ function App() {
               onClick={submitToSupabase}
               disabled={isSubmitting || !name.trim()}
             >
-              {isSubmitting ? "Enregistrement..." : "Je m’inscris ✍️"}
+              {isSubmitting ? "Enregistrement..." : "Je m’inscris à la liste d'attente✍️"}
             </button>
 
           </>
