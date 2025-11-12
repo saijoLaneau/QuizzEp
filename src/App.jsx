@@ -82,7 +82,7 @@ function App() {
 
           </>
         ) : (
-          <h2>✅ Merci {name} ! On se voit à la Release Party 🎊</h2>
+          <h2>✅ Merci {name} ! Tu es bien sur la liste d'attente. On te recontacte 🎊</h2>
         )}
       </div>
     </div>
