@@ -63,9 +63,11 @@ html, body, #root {
   font-weight: 600;
 }
 
-/* ✅ Champ input */
-.name-input {
-  margin-top: 1.3rem;
+/* ✅ Champs input */
+.name-input,
+.telephone-input {
+  display: block;
+  margin: 0.8rem auto 0; /* espace entre les inputs */
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -79,11 +81,13 @@ html, body, #root {
   transition: 0.3s;
 }
 
-.name-input::placeholder {
+.name-input::placeholder,
+.telephone-input::placeholder {
   color: #ccc;
 }
 
-.name-input:focus {
+.name-input:focus,
+.telephone-input:focus {
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -121,9 +125,9 @@ html, body, #root {
 /* 📱 MOBILE (iPhone & petits téléphones) */
 @media (max-width: 500px) {
   .final-screen {
-    background: rgba(0, 0, 0, 0.45); /* un peu plus transparente */
+    background: rgba(0, 0, 0, 0.45);
     padding: 1rem;
-    max-width: 300px; /* 👈 boîte plus fine */
+    max-width: 300px;
     border-radius: 0.8rem;
     line-height: 1.4;
   }
@@ -138,7 +142,8 @@ html, body, #root {
     margin-bottom: 0.5rem;
   }
 
-  .name-input {
+  .name-input,
+  .telephone-input {
     width: 95%;
     padding: 0.6rem 0.8rem;
     font-size: 0.85rem;
