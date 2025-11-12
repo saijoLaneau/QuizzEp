@@ -16,14 +16,14 @@ function App() {
 
   const submitToSupabase = async () => {
     if (!name.trim()) {
-      alert("Veuillez entrer votre nom pour confirmer votre présence.");
+      alert("Veuillez entrer votre nom pour s'enregistrer dans la liste d'attente.");
       return;
     }
 
     try {
       setIsSubmitting(true);
       const { data, error } = await supabase
-        .from("responses")
+        .from("liste_attente")
         .insert([{ name }]);
 
       if (error) throw error;
@@ -47,21 +47,27 @@ function App() {
       <div className="final-screen">
         {!confirmed ? (
           <>
-            <h1>GUEST LIST</h1>
+            <h1>SOLD OUT</h1>
             <p>
-              Tu es invité à la <strong>Release Party Laneau de Saijo !</strong>
+              La <strong>Release Party Laneau de Saijo</strong> est désormais <strong>complète</strong>.
+              Mais pas de panique, tu peux encore t’inscrire sur la <strong>liste d’attente</strong>.
             </p>
+
             <p>
-              Rendez-vous le <strong>21 novembre à 19h00</strong> dans les studios de Tarmac (RTBF).
+              Si des places se libèrent, tu recevras une <strong>confirmation personnelle</strong> par message.
             </p>
+
             <p>
-              👉 Inscris-toi (nom + prénom) pour figurer sur la guest list.
+              👉 Inscris ton <strong>nom et prénom</strong> ci-dessous pour rejoindre la liste d’attente :
             </p>
-            
+
+            <p class="warning">
+              ⚠️ <strong>Ne viens pas</strong> à l’événement sans avoir reçu de confirmation officielle.
+            </p>
 
             <input
               type="text"
-              placeholder="Entrer votre nom"
+              placeholder="Entre ton nom et prénom"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="name-input"
@@ -71,12 +77,9 @@ function App() {
               onClick={submitToSupabase}
               disabled={isSubmitting || !name.trim()}
             >
-              {isSubmitting ? "Enregistrement..." : "Je viens"}
+              {isSubmitting ? "Enregistrement..." : "Je m’inscris ✍️"}
             </button>
 
-            <p>
-              N’hésites pas à partager le lien autour de toi!
-            </p>
           </>
         ) : (
           <h2>✅ Merci {name} ! On se voit à la Release Party 🎊</h2>
